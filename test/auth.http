@@ -1,0 +1,19 @@
+
+###Auth.login
+POST http://localhost:4004/odata/v4/admin/login HTTP/1.1
+Content-Type: application/json
+Accept-Language: pt
+
+{
+    "username": "rpinheiro2",
+    "password": "123"
+}
+
+###Auth.Recovery
+POST http://localhost:4004/odata/v4/admin/recoverPassword HTTP/1.1
+Content-Type: application/json
+Accept-Language: pt
+
+{
+    "email": "rpinheiro@novaconsulting.com.br"
+}

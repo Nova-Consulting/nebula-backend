@@ -1,0 +1,15 @@
+{
+    "requires": {
+      "db": {
+        "[pg]": {
+          "kind": "postgres",
+          "credentials": {
+            "host": "localhost", "port": 5432,
+            "user": "postgres",
+            "password": "712F6F666EFC808EE14FCC49081CBB27",
+            "database": "nebula"
+          }
+        }
+      }
+    }
+  }

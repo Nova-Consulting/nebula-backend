@@ -1,0 +1,16 @@
+@auth = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4ZGY3YmQ4LTNjZTUtNDVhMC05MTA3LWFjZDQwOWEyMTY1ZCIsInVzZXJuYW1lIjoicnBpbmhlaXJvIiwiZW1haWwiOiJyaWNhcmRvLnBpbmhlaXJvQG5vdmFjb25zdWx0aW5nLmNvbS5iciIsImlhdCI6MTcyOTE3NDYzNiwiZXhwIjoxNzM0MzU4NjM2fQ.xmyT4TqLyjMvMJJMIV70dM9NSO-kLxa5HcDqHMXCgtA
+
+###Core.GetAvailablePositions()
+GET http://localhost:4004/odata/v4/admin/GetAvailablePositions() HTTP/1.1
+Content-Type: application/json
+{{auth}}
+
+###Core.GetAvailableEntities()
+GET http://localhost:4004/odata/v4/admin/GetAvailableEntities() HTTP/1.1
+Content-Type: application/json
+{{auth}}
+
+###Core.GetAvailableRoles()
+GET http://localhost:4004/odata/v4/admin/GetAvailableRoles() HTTP/1.1
+Content-Type: application/json
+{{auth}}

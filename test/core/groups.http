@@ -1,0 +1,52 @@
+@auth = Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQ4ZGY3YmQ4LTNjZTUtNDVhMC05MTA3LWFjZDQwOWEyMTY1ZCIsInVzZXJuYW1lIjoicnBpbmhlaXJvIiwiZW1haWwiOiJyaWNhcmRvLnBpbmhlaXJvQG5vdmFjb25zdWx0aW5nLmNvbS5iciIsImlhdCI6MTcyOTE3NDYzNiwiZXhwIjoxNzM0MzU4NjM2fQ.xmyT4TqLyjMvMJJMIV70dM9NSO-kLxa5HcDqHMXCgtA
+
+###Core.Groups
+GET http://localhost:4004/odata/v4/admin/Groups HTTP/1.1
+Content-Type: application/json
+{{auth}}
+
+###Core.Groups
+POST http://localhost:4004/odata/v4/admin/Groups HTTP/1.1
+Content-Type: application/json
+Accept-Language: pt
+{{auth}}
+
+{
+    "name": "Admin2",
+    "description": "Admin2"
+}
+
+###Core.GroupsRoules
+GET http://localhost:4004/odata/v4/admin/GroupRoles HTTP/1.1
+Content-Type: application/json
+{{auth}}
+
+
+###Core.GroupsRoules
+POST http://localhost:4004/odata/v4/admin/GroupRoles HTTP/1.1
+Content-Type: application/json
+Accept-Language: pt
+{{auth}}
+
+{
+    "group_ID": "ee2d0182-15d8-4731-b33f-936e6e655dce",
+    "entity": "Group",
+    "role": "Read"
+}
+
+###Core.UserGroups
+GET http://localhost:4004/odata/v4/core/UsersGroups?$expand=userGroups HTTP/1.1
+Content-Type: application/json
+{{auth}}
+
+###Core.UserGroups
+POST http://localhost:4004/odata/v4/core/UsersGroups HTTP/1.1
+Content-Type: application/json
+Accept-Language: pt
+{{auth}}
+
+{
+    "group_ID": "ee2d0182-15d8-4731-b33f-936e6e655dce",    
+    "user_ID": "a633547c-0b7c-48ac-872c-143baa33f732"
+}
+
