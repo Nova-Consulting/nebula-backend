@@ -23,7 +23,7 @@ const transporter = nodemailer.createTransport({
     },
   });
   
-async function sendMail (to, template, dd) {
+async function sendMail (to, template, dd=null) {
     var data = templateMap[template]
 
     const htmlTemplate = await readFileAsync(data.template, UTF8);

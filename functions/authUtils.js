@@ -28,17 +28,17 @@ Login = async (req) => {
 RecoverPassword = async (req) => {
     const { email } = req.data;
     
-    const user = await SELECT.one.from(Users).where({ email });
-
-    if (!user) return req.reject(404, 'E-mail não encontrado.');
+    const user = await SELECT.one.from(Users).where({ email: email });
+    console.log(email)
+    if (user == undefined) return req.reject(404, 'E-mail não encontrado.');
     
     const token = await jwtUtils.tokenMail(email)
     
     const recoveryLink = `https://${FRONTEND}recover-password?token=${token}`;
 
-    console.log(recoveryLink)
-
     sendMail(email, RECOVERY_PASSORD, { recoveryLink })
+
+    return 'e-mail enviado'
 }
 
 module.exports = { Login, RecoverPassword }

@@ -21,10 +21,13 @@
     "@sap/ux-specification": "^1.124.3"
   },
   "scripts": {
-    "start": "cds run --port $PORT",
+    "start": "cds-serve",
     "watch-admin": "cds watch --open admin/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
+    "auth": {
+        "impl": "functions/auth.js"
+    },
     "requires": {
       "email": {
         "hostname": "sandbox.smtp.mailtrap.io",
