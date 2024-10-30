@@ -23,7 +23,7 @@ Login = async (req) => {
     const token = jwtUtils.token(user.ID, user.username, user.email)
 
     return token;
-}
+}  
 
 RecoverPassword = async (req) => {
     const { email } = req.data;

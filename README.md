@@ -13,6 +13,11 @@ File or Folder | Purpose
 `readme.md` | this getting started guide
 
 
+`sudo docker build -t nebula .`
+
+ `sudo docker run -d -p 4004:4004 nebula`
+
+
 ## Next Steps
 
 - Open a new terminal and run `cds watch`
