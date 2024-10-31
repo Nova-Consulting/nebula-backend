@@ -21,6 +21,7 @@
     "@sap/ux-specification": "^1.124.3"
   },
   "scripts": {
+    "watch": "cds watch",
     "start": "cds-serve",
     "watch-admin": "cds watch --open admin/webapp/index.html?sap-ui-xx-viewCache=false"
   },

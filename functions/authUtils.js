@@ -9,10 +9,14 @@ const { RECOVERY_PASSORD, FRONTEND } = require("./constants")
 Login = async (req) => {
     const { username, password } = req.data;
 
-    const user = await SELECT.one.from(Users).where({ username });
+    var user = await SELECT.one.from(Users).where({ username });
     
     if (user == undefined) {
-        return req.error(401, "USER_NOT_EXiSTS");
+        user = await SELECT.one.from(Users).where({ email: username });
+
+        if (user == undefined) {
+            return req.error(401, "USER_NOT_EXiSTS");
+        }
     }
 
     const isPasswordValid = PasswordEncryptor.comparePassword(password, user.password);
