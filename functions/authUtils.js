@@ -18,8 +18,9 @@ Login = async (req) => {
             return req.error(401, "USER_NOT_EXiSTS");
         }
     }
+    
+    const isPasswordValid = await PasswordEncryptor.comparePassword(password, user.password);
 
-    const isPasswordValid = PasswordEncryptor.comparePassword(password, user.password);
     if (!isPasswordValid) {
         return req.error(401, 'VALIDATION_USER_NOT_FOUND');
     }
