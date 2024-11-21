@@ -1,0 +1,81 @@
+@server = http://localhost:57741
+@auth = Authorization: Basic alice:
+
+
+### BusinessPartnerContato
+# @name BusinessPartnerContato_GET
+GET {{server}}/odata/v4/nebula/BusinessPartnerContato
+{{auth}}
+
+
+### BusinessPartnerContato Drafts GET
+# @name BusinessPartnerContato_Drafts_GET
+GET {{server}}/odata/v4/nebula/BusinessPartnerContato?$filter=(IsActiveEntity eq false)
+{{auth}}
+
+
+### BusinessPartnerContato Draft POST
+# @name BusinessPartnerContato_Draft_POST
+POST {{server}}/odata/v4/nebula/BusinessPartnerContato
+Content-Type: application/json
+{{auth}}
+
+{
+  "nomeContato": "nomeContato-5721664",
+  "logradouro": "logradouro-5721664",
+  "numero": "ro-5721664",
+  "cep": "ep-5721664",
+  "bairro": "bairro-5721664",
+  "municipio": "municipio-5721664",
+  "estado": "64",
+  "complemento": "complemento-5721664",
+  "email": "email-5721664",
+  "telefone": "elefone-5721664",
+  "telefone2": "lefone2-5721664",
+  "celular": "celular-5721664",
+  "businessPartner_ID": "6b2dc36c-b376-4315-a6c4-45c96df4d7a4"
+}
+
+
+### Result from POST request above
+@draftID = {{BusinessPartnerContato_Draft_POST.response.body.$.ID}}
+
+
+### BusinessPartnerContato Draft PATCH
+# @name BusinessPartnerContato_Draft_Patch
+PATCH {{server}}/odata/v4/nebula/BusinessPartnerContato(ID={{draftID}},IsActiveEntity=false)
+Content-Type: application/json
+{{auth}}
+
+{
+  "nomeContato": "nomeContato-5721664",
+  "logradouro": "logradouro-5721664",
+  "numero": "ro-5721664",
+  "cep": "ep-5721664",
+  "bairro": "bairro-5721664",
+  "municipio": "municipio-5721664",
+  "estado": "64",
+  "complemento": "complemento-5721664",
+  "email": "email-5721664",
+  "telefone": "elefone-5721664",
+  "telefone2": "lefone2-5721664",
+  "celular": "celular-5721664"
+}
+
+
+### BusinessPartnerContato Draft Prepare
+# @name BusinessPartnerContato_Draft_Prepare
+POST {{server}}/odata/v4/nebula/BusinessPartnerContato(ID={{draftID}},IsActiveEntity=false)/AdminService.draftPrepare
+Content-Type: application/json
+{{auth}}
+
+{}
+
+
+### BusinessPartnerContato Draft Activate
+# @name BusinessPartnerContato_Draft_Activate
+POST {{server}}/odata/v4/nebula/BusinessPartnerContato(ID={{draftID}},IsActiveEntity=false)/AdminService.draftActivate
+Content-Type: application/json
+{{auth}}
+
+{}
