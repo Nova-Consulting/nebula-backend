@@ -21,5 +21,20 @@
   },
   "scripts": {
     "start": "cds-serve"
+  },
+  "cds": {
+    "auth": {
+        "impl": "functions/auth.js"
+    },
+    "requires": {
+      "email": {
+        "hostname": "sandbox.smtp.mailtrap.io",
+        "port": 587,
+        "secure": false,
+        "user": "bc79160c5c8560",
+        "password": "192b6819dc2036"
+      }
+    }
   }
+
 }
