@@ -8,7 +8,7 @@ const sendMail = require("./sendMail")
 const { WELCOME_TEXT } = require("./constants")
  
 BeforeCreateUser = async (req) => {
-    const { email, username } = req.data;
+    // const { email, username } = req.data;
 
     // const emailExists = await  SELECT.one.from(Users).where({email})
     // if (emailExists) return req.error(409, 'EMAIL_ALREADY_EXISTS', [email]);

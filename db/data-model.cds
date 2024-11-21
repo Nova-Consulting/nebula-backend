@@ -91,9 +91,9 @@ entity Users: cuid, managed {
     password    : String;
     email       : String(50) @mandatory;
     avatar      : Binary;
-    position    : PositionType @mandatory;
-    leadership  : Association to One Users;
-    userGroups  : Association to Many Users.Groups on userGroups.user = $self;
+    // position    : PositionType @mandatory;
+    // leadership  : Association to One Users;
+    // userGroups  : Association to Many Users.Groups on userGroups.user = $self;
 };
 
 entity Groups: cuid, managed {
