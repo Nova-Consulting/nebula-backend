@@ -15,5 +15,5 @@ module.exports = cds.service.impl(function () {
 
     this.on('GetAvailableRoles', GetAvailableRoles);
 
-    this.before('CREATE', 'Users', BeforeCreateUser);
+    
 });
