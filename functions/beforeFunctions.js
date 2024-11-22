@@ -1,6 +1,6 @@
 
 const cds = require('@sap/cds');
-const { Users } = cds.entities('br.com.novaconsulting')
+const { Users } = cds.entities('novaconsulting')
 
 const PasswordEncryptor = require('./passwordEncryptor');
 const sendMail = require("./sendMail")

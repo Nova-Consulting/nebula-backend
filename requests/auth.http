@@ -1,11 +1,11 @@
 
 ###Auth.login
-POST http://20.64.235.73:4004/odata/v4/admin/login HTTP/1.1
+POST http://localhost:4004/odata/v4/nebula/login HTTP/1.1
 Content-Type: application/json
 Accept-Language: pt
 
 {
-    "username": "rpinheiro2",
+    "username": "lia.silva@novaconsulting.com.br",
     "password": "123"
 }
 

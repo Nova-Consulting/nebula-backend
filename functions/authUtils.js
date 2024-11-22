@@ -1,5 +1,5 @@
 
-const { Users } = cds.entities('br.com.novaconsulting')
+const { Users } = cds.entities('novaconsulting')
 
 const PasswordEncryptor = require('./passwordEncryptor');
 const jwtUtils = require('./jwtUtils');

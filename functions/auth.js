@@ -7,7 +7,7 @@ auth = async (req, res, next) => {
     if (req.path.startsWith('/login')) return next();
 
     const token = req.headers['authorization'];
- 
+    console.log('okk')
     if (!token || token == undefined) 
         return responseHandler.error(res, 'Unauthorized', 401)
 
