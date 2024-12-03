@@ -28,4 +28,9 @@ service Nebula {
     entity BusinessPartners as projection on db.BusinessPartners;
 
     entity Material as projection on db.Material;
+
+    entity SolicitacaoBp as projection on db.SolicitacaoBp;
+
+    entity SolicitacaoMaterial as projection on db.SolicitacaoMaterial;
+    
 }

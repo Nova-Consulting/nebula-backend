@@ -91,9 +91,9 @@ entity Users: cuid, managed {
     password    : String;
     email       : String(50) @mandatory;
     avatar      : Binary;
-    // position    : PositionType @mandatory;
-    // leadership  : Association to One Users;
-    // userGroups  : Association to Many Users.Groups on userGroups.user = $self;
+    position    : PositionType @mandatory;
+    leadership  : Association to One Users;
+    userGroups  : Association to Many Users.Groups on userGroups.user = $self;
 };
 
 entity Groups: cuid, managed {
@@ -129,11 +129,239 @@ entity UserTenant: cuid, managed {
     avatar      : Binary;
     tenant      : Association to Tenants @mandatory;
 };
-
 entity Material: cuid, managed {
+  @title: 'Código do Material'
   codMaterial: String(20);
+  
+  @title: 'Subfamília'
   subFamilia: String(20);
+  
+  @title: 'Descrição'
   descricao: String(20);
+  
+  @title: 'Fabricante'
+  fabricante: String(20);
+  
+  @title: 'Descrição Longa'
+  descricaoLong: String(60);
+  
+  @title: 'Peso Bruto'
+  pesoBruto: String(20);
+  
+  @title: 'Peso Líquido'
+  pesoLiquido: String(20);
+  
+  @title: 'Tipo de Material'
+  tipoMaterial: String(20);
+  
+  @title: 'Grupo'
+  grupo: String(20);
+  
+  @title: 'Código do Mapa'
+  codMapa: String(20);
+  
+  @title: 'Subgrupo'
+  subGrupo: String(20);
+  
+  @title: 'Código EAN'
+  codigoEan: String(20);
+  
+  @title: 'Categoria EAN'
+  categoriaEan: String(20);
+  
+  @title: 'Hierarquia'
+  hierarquia: String(20);
+  
+  @title: 'Unidade de Medida'
+  unidadeMedida: String(2);
+  
+  @title: 'Código Legado'
+  codLegado: String(20);
+  
+  @title: 'Setor de Atividade'
+  setorAtividade: String(20);
+  
+  @title: 'País de Origem'
+  fisPaisOrigem: String(20);
+  
+  @title: 'Unidade de Remessa'
+  fisUnRemessa: String(20);
+  
+  @title: 'NCM'
+  fisNcm: String(20);
+  
+  @title: 'Quantidade Mínima'
+  fisQtdMinima: String(20);
+  
+  @title: 'CFOP'
+  fisCfop: String(20);
+  
+  @title: 'Receita'
+  fisReceita: String(20);
+  
+  @title: 'Centro de Lucro'
+  fisCentroLucro: String(20);
+  
+  @title: 'ONU'
+  fisOnu: String(20);
+  
+  @title: 'Origem'
+  fisOrigem: String(20);
+  
+  @title: 'Componente Parte 1'
+  fisCompPa1: String(50);
+  
+  @title: 'Componente Parte 2'
+  fisCompPa2: String(50);
+  
+  @title: 'Componente Parte 3'
+  fisCompPa3: String(50);
+  
+  @title: 'Componente Parte 4'
+  fisCompPa4: String(50);
+  
+  @title: 'Status'
+  status: String(20);
+}
+entity BusinessPartners : cuid, managed {
+  @title: 'Código Nébula'
+  codigoNebula: String(15);
+  
+  @title: 'Tipo de Cadastro'
+  tipoCadastro: BusinessPartnerType;
+  
+  @title: 'Tipo de Parceiro'
+  tipoParceiro: PartnerType;
+  
+  @title: 'Avatar'
+  avatar: String(200);
+  
+  @title: 'Status Nébula'
+  statusNebula: String(10);
+
+  // COMUM
+  @title: 'CPF/CNPJ'
+  cpfCnpj: String(25);
+  
+  @title: 'E-mail'
+  email: String(25);
+  
+  @title: 'Data de Fundação'
+  dataFundacao: Date;
+
+  // FORNECEDOR - PJ
+  @title: 'É Matriz?'
+  matriz: Boolean;
+
+  // CLIENTE - PF
+  @title: 'Nome Completo'
+  nomeCompleto: String(50);
+  
+  @title: 'Data de Nascimento'
+  dataNascimento: Date default CURRENT_DATE;
+  
+  @title: 'Gênero'
+  genero: GeneroType;
+  
+  @title: 'Nacionalidade'
+  nacionalidade: String(20);
+  
+  @title: 'Naturalidade'
+  naturalidade: String(50);
+  
+  @title: 'UF'
+  uf: String(2);
+  
+  @title: 'Estado Civil'
+  estadoCivil: EstadoCivilType;
+  
+  @title: 'Profissão'
+  profissao: String(20);
+  
+  @title: 'Nome da Mãe'
+  nomeMae: String(20);
+  
+  @title: 'Nome do Pai'
+  nomePai: String(20);
+  
+  @title: 'Número do RG'
+  rgNumero: String(20);
+  
+  @title: 'Emissor do RG'
+  rgEmissor: String(20);
+  
+  @title: 'Data de Emissão do RG'
+  rgEmissao: Date;
+
+  // ENDEREÇO
+  @title: 'Logradouro'
+  logradouro: String(100);
+  
+  @title: 'Número'
+  numero: String(10);
+  
+  @title: 'CEP'
+  cep: String(10);
+  
+  @title: 'Bairro'
+  bairro: String(50);
+  
+  @title: 'Município'
+  municipio: String(50);
+  
+  @title: 'Estado'
+  estado: String(2);
+  
+  @title: 'Complemento'
+  complemento: String(50);
+
+  // FISCAL
+  @title: 'Tipo de Contribuinte ICMS'
+  tipoContribIcms: String(30);
+  
+  @title: 'Inscrição Estadual'
+  inscricaoEstadual: String(30);
+  
+  @title: 'Inscrição Municipal'
+  inscricaoMunicipal: String(30);
+  
+  @title: 'Código do Município IBGE'
+  codMuncipioIbge: String(30);
+  
+  @title: 'Classificação Fiscal'
+  classificacaoFiscal: String(30);
+  
+  @title: 'Grupo de Contas'
+  grupoContas: String(30);
+  
+  @title: 'Código SUFRAMA'
+  codSuframa: String(30);
+  
+  @title: 'CNAE Principal'
+  cnaePrincipal: String(30);
+  
+  @title: 'Natureza Jurídica'
+  naturezaJuridica: String(30);
+  
+  @title: 'Tipo de Setor Industrial'
+  tipoSetorIndustrial: String(30);
+  
+  @title: 'Tipo de Declaração de Imposto'
+  tipoDeclaracaoImposto: String(30);
+  
+  @title: 'Porte da Empresa'
+  porteEmpresa: String(30);
+  
+  @title: 'Optante pelo Simples Nacional?'
+  optanteSimples: Boolean;
+}
+
+
+
+entity SolicitacaoMaterial: cuid, managed {
+  codMaterial: String(20) @title : 'Código Material';
+  subFamilia: String(20) @title : 'Sub Familia';
+  descricao: String(20) @mandatory;
   fabricante: String(20);
   descricaoLong: String(60);
   pesoBruto: String(20);
@@ -164,8 +392,7 @@ entity Material: cuid, managed {
   status: String(20);
 }
 
-entity BusinessPartners : cuid, managed {
-  codigoNebula: String(15);
+entity SolicitacaoBp : cuid, managed { 
   tipoCadastro: BusinessPartnerType;
   tipoParceiro: PartnerType;
   avatar: String(200);
@@ -217,5 +444,4 @@ entity BusinessPartners : cuid, managed {
   tipoDeclaracaoImposto: String(30);
   porteEmpresa: String(30);
   optanteSimples: Boolean;
-
 }
